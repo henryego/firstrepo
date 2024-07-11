@@ -1,0 +1,9 @@
+{
+	"name": "nairanil83-df",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "52bff5ac-ecca-4704-a2ac-8bc8488abb58",
+		"tenantId": "abec7981-3822-4685-98b0-533aca20c2ed"
+	}
+}
