@@ -3,7 +3,7 @@ CREATE DATABASE sqldb;
 GO
 
 -- Switch to the new database context
-USE MyNewDatabase;
+USE sqldb;
 GO
 
 -- Create a new table called Employees
