@@ -1,11 +1,9 @@
--- Create a new database called testdb
-CREATE DATABASE sqldb;
-GO
 
 -- Switch to the new database context
 USE sqldb;
 GO
 
+-- Create a new table called Employees
 -- Create a new table called Employees
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY IDENTITY(1,1),  -- Primary key with auto-increment
