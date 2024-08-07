@@ -1,5 +1,5 @@
 -- Create a new database called testdb
-CREATE DATABASE MyNewDatabase;
+CREATE DATABASE sqldb;
 GO
 
 -- Switch to the new database context
