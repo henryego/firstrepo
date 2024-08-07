@@ -1,0 +1,28 @@
+name: Deploy Database
+
+on:
+  push:
+    branches:
+      - main  # Adjust as needed
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    # - name: Set up SQL tools
+    #   run: sudo apt-get install -y mssql-tools unixodbc-dev
+
+    - name: Deploy SQL script
+      env:
+        SQL_SERVER: "pocsqlserver00.database.windows.net"
+        SQL_DATABASE: "sqldb"
+        SQL_USER: sam
+        SQL_PASSWORD: p@ssword@123
+      run: |
+        echo "Running ./sql-scripts/your-script.sql"
+        /opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER -d $SQL_DATABASE -U $SQL_USER -P $SQL_PASSWORD -i ./sqlscripts/sqlscript.sql
