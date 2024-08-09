@@ -41,10 +41,16 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-    - name: Deploy SQL script
-      env:
-        SQL_SERVER: "pocsqlserver00.database.windows.net"
-        SQL_DATABASE: "sqldb"
-        SQL_USER: "sam"
-        SQL_PASSWORD: "p@ssword@123"
-      run: /opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER -d $SQL_DATABASE -U $SQL_USER -P $SQL_PASSWORD -i ./downloaded-sqlscripts/sqlscript.sql
+    - name: Deploy SQL script to Azure SQL Database
+      uses: azure/sql-action@v1
+      with:
+        connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
+        path: ./downloaded-sqlscripts/sqlscript.sql
+
+    # - name: Deploy SQL script
+    #   env:
+    #     SQL_SERVER: "pocsqlserver00.database.windows.net"
+    #     SQL_DATABASE: "sqldb"
+    #     SQL_USER: "sam"
+    #     SQL_PASSWORD: "p@ssword@123"
+    #   run: /opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER -d $SQL_DATABASE -U $SQL_USER -P $SQL_PASSWORD -i ./downloaded-sqlscripts/sqlscript.sql
