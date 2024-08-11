@@ -47,10 +47,10 @@ jobs:
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
         path: ./downloaded-sqlscripts/sqlscript.sql
 
-    # - name: Deploy SQL script
-    #   env:
-    #     SQL_SERVER: "pocsqlserver00.database.windows.net"
-    #     SQL_DATABASE: "sqldb"
-    #     SQL_USER: "sam"
-    #     SQL_PASSWORD: "p@ssword@123"
-    #   run: /opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER -d $SQL_DATABASE -U $SQL_USER -P $SQL_PASSWORD -i ./downloaded-sqlscripts/sqlscript.sql
+    - name: Deploy SQL script
+      env:
+        SQL_SERVER: "pocsqlserver00.database.windows.net"
+        SQL_DATABASE: "mytestdatabase"
+        SQL_USER: "sysadmin"
+        SQL_PASSWORD: "Finacle2024"
+      run: /opt/mssql-tools/bin/sqlcmd -S $SQL_SERVER -d $SQL_DATABASE -U $SQL_USER -P $SQL_PASSWORD -i ./downloaded-sqlscripts/sqlscript.sql
