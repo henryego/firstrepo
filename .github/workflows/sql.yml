@@ -44,12 +44,13 @@ jobs:
     - name: Deploy SQL script to Azure SQL Database
       uses: azure/sql-action@v1
       with:
+        server-name: ${{ env.SQL_SERVER }}
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
         sql-file: ./downloaded-sqlscripts/sqlscript.sql
 
     - name: Deploy SQL script
       env:
-        SQL_SERVER: "pocsqlserver00.database.windows.net"
+        SQL_SERVER: ${{ env.SQL_SERVER }}
         SQL_DATABASE: "mytestdatabase"
         SQL_USER: "sysadmin"
         SQL_PASSWORD: "Finacle2024"
