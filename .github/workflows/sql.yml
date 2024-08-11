@@ -41,13 +41,6 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-    - name: Deploy SQL script to Azure SQL Database
-      uses: azure/sql-action@v1
-      with:
-        server-name: "pocsqlserver00.database.windows.net"
-        connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: ./downloaded-sqlscripts/sqlscript.sql
-
     - name: Deploy SQL script
       env:
         SQL_SERVER: "pocsqlserver00.database.windows.net"
