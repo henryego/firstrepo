@@ -45,7 +45,7 @@ jobs:
       uses: azure/sql-action@v1
       with:
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        path: ./downloaded-sqlscripts/sqlscript.sql
+        sql-file: ./downloaded-sqlscripts/sqlscript.sql
 
     - name: Deploy SQL script
       env:
